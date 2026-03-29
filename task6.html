@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+  body{
+    margin: 0px;
+    padding: 0px;
+background-color: white;
+    font-size: 14px;
+  }
+  header{
+    margin:10px;
+    padding:25px;
+    background-color:rgb(255, 238, 0);
+    color:rgb(0, 0, 0);
+    border-radius:5px;
+  }
+  header h3{
+    margin:0px;
+    
+  }
+  header p{
+  margin:5px 0;  
+  }
+  #container{
+display: flex;
+gap:10px;
+padding:10px;
+}
+nav{
+width: 530px;
+}
+
+nav ul{
+list-style:none; 
+padding:0px; 
+ margin:0px;
+}
+nav ul li{
+margin-bottom:5px;
+}
+nav ul li a{
+display:block;
+padding:10px;
+text-decoration:none;
+border-radius: 5px;
+background:rgb(59, 214, 12);
+color:rgb(255, 255, 255);
+
+}
+nav ul li a:hover{
+background:rgb(187, 7, 10);
+}
+#content{
+flex:1;
+}
+#content h2{
+margin-top:0;
+}
+#content a{
+color:#279a31;
+}
+#sidebar{
+width: 250px;
+background-color:rgb(248, 239, 0);
+color:rgb(0, 0, 0); padding: 20px;
+border-radius: 8px;
+}
+#footer {
+margin:10px;
+padding:15px;
+border:1px solid black;
+font-size:14px;
+background:white;
+}
+
+@media screen and (max-width:700px){
+  main{
+    flex-direction:column;
+  }
+  #content,
+  #content h2,
+  #content a,
+  #sidebar,
+  #footer{
+    width:100%;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Welcome to My Homepage</h2>
+    <p>Use the menu to select different Stylesheets</p>
+  </header>
+  <div id="container">
+  <nav>
+    <ul>
+        
+        <li><a href="a">Click 1</a></li>
+        <li><a href="a">Click2</a></li>
+        <li><a href="a">Click 3</a></li>        
+        <li><a href="a">Click 4</a></li>
+        <li><a href="a">Open soon</a></li>
+    </ul>
+  </nav>
+    
+  <div id="content">
+    <h2>Open This</h2>
+    <p>Hi, im Dave from San Isidro Concepcion, Tarlac and i am Student in Pampanga State Agricultural University </p>
+    <p>Hi, im Dave from San Isidro Concepcion, Tarlac and i am Student in Pampanga State Agricultural University:</p>
+    <p><a href="a">Comming soon</a></p>
+  </div>
+    
+  <div id="sidebar">
+    <h3>Side-Bar</h3>    
+    <p>The HTML
+Hi, im Dave from San Isidro Concepcion, Tarlac and i am Student in Pampanga State Agricultural University</p>
+  </div>
+    
+</div>
+  
+  <div id="footer">
+    <p>Wraps the self-contained piece of content.</p>
+  </div> 
+
+
+  </body>
+</html>

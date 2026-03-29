@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dave Gomez</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #4df788;
+            --light-color: #25d333;
+            --dark-color: #1e293b;
+        }
+
+        body {
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgb(9, 188, 63);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            background: var(--light-color);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #64748b;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--primary-color);
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .hero-img img {
+            width: 50%;
+            border-radius: 50%;
+            border: 8px solid rgb(255, 255, 255);
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        }
+
+        /* Sections */
+        .section {
+            padding: 8rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #64748b;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgb(0, 255, 17);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.10s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-20px);
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .project-info p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            align-items: center;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            font-size: 1rem;
+            align-items: center;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+    
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-container,
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 6rem;
+                height: auto;
+                padding-bottom: 4rem;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-img {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .nav-links {
+                display: none; /* Add mobile menu functionality if needed */
+            }
+        }
+    </style>
+    <!-- Font Awesome for Icons -->
+   </head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">DaveGomez</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Hi, I'm <span>Dave Gomez</span></h1>
+                <p>An enthusiastic web developer and designer committed to producing elegant, practical, and clean digital experiences.</p>
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+            <div class="hero-img">
+                <img src="tik1.html.jpg" alt="Your Photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="tik1.html.jpg" alt="About Image">
+            </div>
+            <div class="about-text">
+                <p>Hi, im Dave from San Isidro Concepcion, Tarlac and i am Student in Pampanga State Agricultural University</p>
+                <p>I take IT under College of Engineering and Computer Studies, because i want to learn more code and iwant to challenge my self.</p>
+                <a href="#contact" class="btn">View my contact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>HTML</h3>
+            </div>
+            <div class="skill-card">
+                <h3>Java</h3>
+            </div>
+             <div class="skill-card">
+                <h3>Phyton</h3>
+            </div>
+             <div class="skill-card">
+                <h3>CSS</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+                <div class="project-info">
+                    <h3>Task#1</h3>
+                    <a href="task1.html" class="btn">View Project</a>
+                </div>
+        
+                <div class="project-info">
+                    <h3>Task#2</h3>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            
+                <div class="project-info">
+                    <h3>Task#3</h3>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+
+                <div class="project-info">
+                    <h3>Task#4</h3>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+
+                <div class="project-info">
+                    <h3>Task#5</h3>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+
+                <div class="project-info">
+                    <h3>Task#6</h3>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p>Pampanga, Central Luzon, Philippines</p>
+                <p> dlgomez0928@iskwela.psau.edu.ph</p>
+                <p> +63 9166678080</p>
+                <p> linkedin.com/in/yourname</p>
+                <p> github.com/DaveGomez-22</p>
+            </div>
+           
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
